@@ -1,0 +1,227 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+int main (void){
+		setlocale(LC_ALL, "Portuguese");
+		
+	char nome[40];
+	char endereco [50];
+	char telefone[15];
+	char cpf [15];
+	
+	
+	
+	
+	char nome_car;
+	int carro;
+	float carroslect;
+	float valor;
+	int kwid = 48790, mobi = 49240, uno = 64990, hb20 = 64190, joy = 64240, gol= 65590, siena = 66290; 
+	
+	
+	printf ("****************TABELA CARROS À VENDA***************\n");	
+	printf("_____Modelo______________Motor____________Preco____\n");
+	printf ("1-->Renault Kwid        1.0 12v         R$48.990\n");
+	printf ("2-->Fiat Mobi           1.0 8V          R$49.940\n");
+	printf ("3-->Fiat  Uno           1.0 8V          R$64.990\n");
+	printf ("4-->Hyundai HB20        1.0 12V         R$64.990\n");
+	printf ("5-->Chevrolet Joy       1.0 8V          R$64.990\n");
+	printf ("6-->Volkswagen Gol      1.0 8V          R$65.990\n");
+	printf ("7-->Fiat Grand Siena    1.0 8V          R$66.990\n");
+	printf("\n****************************************************");
+	printf (" \nSelecione : ");
+	scanf ("%i", &carro);
+	
+	switch (carro) {
+		
+		case 1 :
+			carro = kwid;
+			printf("\nVeiculo : Renault Kwid 1.0 12v\n");
+			break;
+		case 2 :
+			carro = mobi;
+			printf("\nVeiculo : Fiat Mobi 1.0 8V\n");
+			break;
+		case 3 :
+			carro = uno;
+			printf("\nVeiculo : Fiat  Uno 1.0 8V\n");
+			break;
+		case 4 :
+			carro = hb20;
+			printf("\nVeiculo : Hyundai HB20 1.0 12V\n");
+			break;
+		case 5 :
+			carro = joy;
+			printf("\nVeiculo : Chevrolet Joy 1.0 8V\n") ;
+			break;
+		case 6 :
+			carro = gol;
+			printf("\nVeiculo : Volkswagen Gol 1.0 8V\n");
+			break;
+		case 7 :
+			carro = siena;
+			printf("\nVeiculo : Fiat Grand Siena 1.0 8V\n");
+			break;
+			default :
+				printf("OPÇÃO INVÁLIDA");
+				return 0;
+				
+	}
+	
+	
+	  carroslect = carro;
+		printf("\nValor : %.2f", carroslect);
+
+		printf("\n\nMétodo de Pagamento: \n1--> À Vista com 10% % de desconto\n2-->Financiamento C/Juros a 8% %\n\nSelecione: ");
+		int pag;
+		scanf("%i", &pag);
+		
+		if(pag >= 3){
+			return 0;
+		}
+		
+		
+		if (pag == 1){
+		
+		
+		carroslect= carroslect-(carroslect*10/100);
+		printf("\nValor Final do Veículo com desconto : %.2f\n", carroslect);
+		
+		printf("\n\n**********INSIRA SEUS DADOS**********\n");
+		
+		
+		fgets (nome,40,stdin);
+			printf ("\nDigite seu nome: ");
+		fgets (nome,40,stdin);
+			printf("Digite seu CPF: ");
+		fgets(cpf,15,stdin);
+			printf ("Digite seu endereco: ");
+		fgets (endereco,50,stdin);
+			printf("Digite seu telefone: ");
+		fgets(telefone,15,stdin);
+
+		printf("\n\n\n\n———————————————————————————————————————————————————————");
+		printf("\n**********************NOTA FISCAL**********************");
+		printf("\nCliente: %s", nome);
+		printf("\nEndereço: %s", endereco);
+		printf("\nCPF: %s", cpf);
+		printf("\nTelefone: %s", telefone);
+		printf("\nModelo Veículo: ");
+		
+		if(carro=1)
+		printf("Renault Kwid       1.0 12v\n");
+		else if(carro=2)
+		printf("Fiat Mobi           1.0 8V\n");
+		else if(carro=3)
+		printf("Fiat  Uno          1.0 8V\n");
+		else if(carro=4)
+		printf("Hyundai HB20       1.0 12V\n");
+		else if(carro=5)
+		printf("Chevrolet Joy       1.0 8V\n");
+		else if(carro=6)
+		printf("Volkswagen Gol      1.0 8V\n");
+		else if(carro=7)
+		printf("Fiat Grand Siena    1.0 8V\n");
+	
+		printf("\nTotal : %.2f", carroslect);
+		printf("\n\n*******************************************************");
+		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
+		printf("\n*******************************************************");
+		printf("\n———————————————————————————————————————————————————————");
+		
+		
+	}	
+		else {
+		
+		printf("\n***Opções de Financiamento***\n");
+		printf("1--> 12x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*10/100));
+		printf("2--> 24x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*15/100)) /12, carroslect+(carroslect*15/100));
+		printf("3--> 36x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*20/100)) /12, carroslect+(carroslect*20/100));
+		printf("4--> 48x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*25/100)) /12, carroslect+(carroslect*25/100));
+		
+		int opjuros;
+		printf("\nSelecione: ");
+		scanf ("%i", &opjuros);
+		
+		
+		switch (opjuros) {
+		
+			
+			case 1:
+				opjuros = carroslect+(carroslect*10/100);
+				break;
+			case 2:
+				opjuros = carroslect+(carroslect*15/100);
+				break;
+			case 3:
+				opjuros = carroslect+(carroslect*20/100);
+				break;
+			case 4:
+				opjuros = carroslect+(carroslect*25/100);
+				break;		
+				default :
+				printf("OPÇÃO INVÁLIDA");
+				return 0;
+			}
+		
+		
+		
+		float opjurosf = opjuros;
+		
+		printf("%.2f", opjurosf);
+		
+		printf("\n\n**********INSIRA SEUS DADOS**********\n");
+		
+		
+		fgets (nome,40,stdin);
+			printf ("\nDigite seu nome: ");
+		fgets (nome,40,stdin);
+			printf("Digite seu CPF: ");
+		fgets(cpf,15,stdin);
+			printf ("Digite seu endereco: ");
+		fgets (endereco,50,stdin);
+			printf("Digite seu telefone: ");
+		fgets(telefone,15,stdin);
+
+		
+		printf("\n\n\n\n———————————————————————————————————————————————————————");
+		printf("\n**********************NOTA FISCAL**********************");
+		printf("\nCliente: %s", nome);
+		printf("\nEndereço: %s", endereco);
+		printf("\nCPF: %s", cpf);
+		printf("\nTelefone: %s", telefone);
+		
+		printf("\nModelo Veículo: ");
+		
+		if(carro=1)
+		printf("Renault Kwid 1.0 12v\n");
+		else if(carro=2)
+		printf("Fiat Mobi 1.0 8V\n");
+		else if(carro=3)
+		printf("Fiat  Uno 1.0 8V\n");
+		else if(carro=4)
+		printf("Hyundai HB20 1.0 12V\n");
+		else if(carro=5)
+		printf("Chevrolet Joy 1.0 8V\n");
+		else if(carro=6)
+		printf("Volkswagen Gol 1.0 8V\n");
+		else if(carro=7)
+		printf("Fiat Grand Siena 1.0 8V\n");
+	
+		printf("\nFinanciamento: 12x %.2f\n\nValor Final: = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*10/100));
+		
+	
+		printf("\n\n*******************************************************");
+		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
+		printf("\n*******************************************************");
+		printf("\n———————————————————————————————————————————————————————");
+		
+	
+		
+		
+}
+	
+		
+
+	return 0;
+}
