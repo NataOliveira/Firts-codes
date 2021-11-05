@@ -10,19 +10,21 @@ int main (void){
 	char cpf [15];
 	
 	
-	
+	float fim;
+	int vz;
+	float parc;
 	
 	char nome_car;
 	int carro;
 	float carroslect;
 	float valor;
-	int kwid = 48790, mobi = 49240, uno = 64990, hb20 = 64190, joy = 64240, gol= 65590, siena = 66290; 
+	int kwid = 48990, mobi = 49990, uno = 64990, hb20 = 64990, joy = 64990, gol= 65990, siena = 66990; 
 	
 	
 	printf ("****************TABELA CARROS À VENDA***************\n");	
 	printf("_____Modelo______________Motor____________Preco____\n");
 	printf ("1-->Renault Kwid        1.0 12v         R$48.990\n");
-	printf ("2-->Fiat Mobi           1.0 8V          R$49.940\n");
+	printf ("2-->Fiat Mobi           1.0 8V          R$49.990\n");
 	printf ("3-->Fiat  Uno           1.0 8V          R$64.990\n");
 	printf ("4-->Hyundai HB20        1.0 12V         R$64.990\n");
 	printf ("5-->Chevrolet Joy       1.0 8V          R$64.990\n");
@@ -72,7 +74,7 @@ int main (void){
 	  carroslect = carro;
 		printf("\nValor : %.2f", carroslect);
 
-		printf("\n\nMétodo de Pagamento: \n1--> À Vista com 10% % de desconto\n2-->Financiamento C/Juros a 8% %\n\nSelecione: ");
+		printf("\n\nMétodo de Pagamento: \n1--> À Vista com 10% % de desconto\n2-->Financiamento C/Juros %\n\nSelecione: ");
 		int pag;
 		scanf("%i", &pag);
 		
@@ -134,14 +136,15 @@ int main (void){
 		else {
 		
 		printf("\n***Opções de Financiamento***\n");
-		printf("1--> 12x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*10/100));
-		printf("2--> 24x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*15/100)) /12, carroslect+(carroslect*15/100));
-		printf("3--> 36x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*20/100)) /12, carroslect+(carroslect*20/100));
-		printf("4--> 48x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*25/100)) /12, carroslect+(carroslect*25/100));
+		printf("1--> 12x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*0.10));
+		printf("2--> 24x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*15/100)) /24, carroslect+(carroslect*0.15));
+		printf("3--> 36x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*20/100)) /36, carroslect+(carroslect*0.20));
+		printf("4--> 48x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*25/100)) /48, carroslect+(carroslect*0.25));
 		
 		int opjuros;
 		printf("\nSelecione: ");
 		scanf ("%i", &opjuros);
+		
 		
 		
 		switch (opjuros) {
@@ -149,15 +152,26 @@ int main (void){
 			
 			case 1:
 				opjuros = carroslect+(carroslect*10/100);
+				vz = 12;
+				parc= opjuros/12;
+			
 				break;
 			case 2:
 				opjuros = carroslect+(carroslect*15/100);
+				vz = 24;
+				parc= opjuros/24;
 				break;
 			case 3:
 				opjuros = carroslect+(carroslect*20/100);
+				
+				vz = 36;
+				parc= opjuros/36;
 				break;
 			case 4:
 				opjuros = carroslect+(carroslect*25/100);
+
+				vz = 48;
+				parc= opjuros/48;
 				break;		
 				default :
 				printf("OPÇÃO INVÁLIDA");
@@ -165,6 +179,7 @@ int main (void){
 			}
 		
 		
+	    fim=opjuros;
 		
 		float opjurosf = opjuros;
 		
@@ -187,9 +202,9 @@ int main (void){
 		printf("\n\n\n\n———————————————————————————————————————————————————————");
 		printf("\n**********************NOTA FISCAL**********************");
 		printf("\nCliente: %s", nome);
-		printf("\nEndereço: %s", endereco);
-		printf("\nCPF: %s", cpf);
-		printf("\nTelefone: %s", telefone);
+		printf("Endereço: %s", endereco);
+		printf("CPF: %s", cpf);
+		printf("Telefone: %s", telefone);
 		
 		printf("\nModelo Veículo: ");
 		
@@ -208,8 +223,8 @@ int main (void){
 		else if(carro=7)
 		printf("Fiat Grand Siena 1.0 8V\n");
 	
-		printf("\nFinanciamento: 12x %.2f\n\nValor Final: = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*10/100));
 		
+		printf("Financiamento em %i Vezes\nValor Mensalidade : %.2f\nValor Final: %.2f ",vz,parc,fim);
 	
 		printf("\n\n*******************************************************");
 		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
