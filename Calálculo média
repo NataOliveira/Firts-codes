@@ -1,19 +1,24 @@
 int main (){
-	
+	//Declarar variáveis
 	float notas [10];
 	float media;
 	float total;
 
+        //Pedir notas ao usuário
 	printf("Digite suas notas :\n");
-	
+
+	//Ler notas do informadas pelo usuário
 	for (int i = 0; i < 10; ++i)
 	scanf ("%f", &notas[i]);
-	
+
+	//Somar notas
 	for (int i = 0; i < 10; ++i)
 	total += notas[i];
-	
+
+	//fazer a média das notas 
 	media = total / 10;
-	
+
+	//Mostrar na tela a Média
 	printf("Sua media e : %.2f", media);
 	
 }
