@@ -2,25 +2,25 @@
 #include <math.h>
 #include <locale.h>
 int main (void){
-		setlocale(LC_ALL, "Portuguese");
-
+setlocale(LC_ALL, "Portuguese");
+//Declarando variáveis
 	char nome[40];
 	char endereco [50];
 	char telefone[15];
 	char cpf [15];
-
-
 	float fim;
 	int vz;
+	int opjuros;
 	float parc;
     int chose;
 	char nome_car;
 	int carro;
+	int pag;
 	float carroslect;
 	float valor;
 	int kwid = 48990, mobi = 49990, uno = 64990, hb20 = 64990, joy = 64990, gol= 65990, siena = 66990;
 
-
+//MOSTRAR NA TELA OPÇÃO DE MODELOS DE CARROS
 	printf ("****************TABELA CARROS À VENDA***************\n");
 	printf("_____Modelo______________Motor____________Preco____\n");
 	printf ("1-->Renault Kwid        1.0 12v         R$48.990\n");
@@ -33,7 +33,7 @@ int main (void){
 	printf("\n****************************************************");
 	printf (" \nSelecione : ");
 	scanf ("%i", &chose);
-
+// COMANDO QUE VAI RECEBER VALOR E ARMAZENAR NA VARIÁVEL ''CHOSE'' E VERIÁVEL ''CARRO'' RECEBER VALOR
 	switch (chose) {
 
 		case 1 :
@@ -67,30 +67,24 @@ int main (void){
 			default :
 				printf("OPÇÃO INVÁLIDA");
 				return 0;
-
 	}
-
-
+//variável ''carroslect'' recebe valor da variável ''carros'' e mostra na tela
 	  carroslect = carro;
 		printf("\nValor : %.2f", carroslect);
-
+//MOSTRA NA TELA OPÇÕES DE PAGAMENTO
 		printf("\n\nMétodo de Pagamento: \n1--> À Vista com 10% % de desconto\n2-->Financiamento C/Juros %\n\nSelecione: ");
-		int pag;
 		scanf("%i", &pag);
-
-		if(pag >= 3){
+//Validar opção selecionada
+		if(pag != 1 && pag !=2){
 			return 0;
 		}
-
-
+//ENTRA NO COMANDO PARA PAGAMENTO A VISTA
 		if (pag == 1){
-
-
+//APLICA DESCONTO DE 10%
 		carroslect= carroslect-(carroslect*10/100);
 		printf("\nValor Final do Veículo com desconto : %.2f\n", carroslect);
-
+//RECEBER INFORMAÇÕES DO CLIENTE PARA EMISSÃO DA NOTA
 		printf("\n\n**********INSIRA SEUS DADOS**********\n");
-
 
 		fgets (nome,40,stdin);
 			printf ("\nDigite seu nome: ");
@@ -101,7 +95,7 @@ int main (void){
 		fgets (endereco,50,stdin);
 			printf("Digite seu telefone: ");
 		fgets(telefone,15,stdin);
-
+//EMISSÃO DA NOTA FISCAL
 		printf("\n\n\n\n———————————————————————————————————————————————————————");
 		printf("\n**********************NOTA FISCAL**********************");
 		printf("\nCliente: %s", nome);
@@ -130,31 +124,24 @@ int main (void){
 		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
 		printf("\n*******************************************************");
 		printf("\n———————————————————————————————————————————————————————");
-
-
 	}
 		else {
-
+//MOSTRA OPÇÕES DE PARCELAMENTO E VALORES COM JUROS
 		printf("\n***Opções de Financiamento***\n");
-		printf("1--> 12x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*0.10));
-		printf("2--> 24x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*15/100)) /24, carroslect+(carroslect*0.15));
-		printf("3--> 36x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*20/100)) /36, carroslect+(carroslect*0.20));
-		printf("4--> 48x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*25/100)) /48, carroslect+(carroslect*0.25));
+		printf("1--> 12x %.2f (Com Juros 10%%)= %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*0.10));
+		printf("2--> 24x %.2f (Com Juros 15%%)= %.2f\n", (carroslect+(carroslect*15/100)) /24, carroslect+(carroslect*0.15));
+		printf("3--> 36x %.2f (Com Juros 20%%)= %.2f\n", (carroslect+(carroslect*20/100)) /36, carroslect+(carroslect*0.20));
+		printf("4--> 48x %.2f (Com Juros 25%%)= %.2f\n", (carroslect+(carroslect*25/100)) /48, carroslect+(carroslect*0.25));
 
-		int opjuros;
 		printf("\nSelecione: ");
 		scanf ("%i", &opjuros);
 
-
-
+//FAZ O CALCULO DO JUROS NA OPÇÃO SELCIONADA ACIMA
 		switch (opjuros) {
-
-
 			case 1:
 				opjuros = carroslect+(carroslect*10/100);
 				vz = 12;
 				parc= opjuros/12;
-
 				break;
 			case 2:
 				opjuros = carroslect+(carroslect*15/100);
@@ -163,13 +150,11 @@ int main (void){
 				break;
 			case 3:
 				opjuros = carroslect+(carroslect*20/100);
-
 				vz = 36;
 				parc= opjuros/36;
 				break;
 			case 4:
 				opjuros = carroslect+(carroslect*25/100);
-
 				vz = 48;
 				parc= opjuros/48;
 				break;
@@ -177,16 +162,14 @@ int main (void){
 				printf("OPÇÃO INVÁLIDA");
 				return 0;
 			}
-
-
 	    fim=opjuros;
 
 		float opjurosf = opjuros;
 
 		printf("%.2f", opjurosf);
 
+//RECEBER INFORMAÇÕES DO CLIENTE PARA EMISSÃO DA NOTA
 		printf("\n\n**********INSIRA SEUS DADOS**********\n");
-
 
 		fgets (nome,40,stdin);
 			printf ("\nDigite seu nome: ");
@@ -198,7 +181,7 @@ int main (void){
 			printf("Digite seu telefone: ");
 		fgets(telefone,15,stdin);
 
-
+//EMISSÃO DA NOTA FISCAL
 		printf("\n\n\n\n———————————————————————————————————————————————————————");
 		printf("\n**********************NOTA FISCAL**********************");
 		printf("\nCliente: %s", nome);
@@ -223,20 +206,11 @@ int main (void){
 		else if(chose==7)
 		printf("Fiat Grand Siena    1.0 8V\n");
 
-
 		printf("Financiamento em %i Vezes\nValor Mensalidade : %.2f\nValor Final: %.2f ",vz,parc,fim);
-
 		printf("\n\n*******************************************************");
 		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
 		printf("\n*******************************************************");
 		printf("\n———————————————————————————————————————————————————————");
-
-
-
-
 }
-
-
-
 	return 0;
 }
