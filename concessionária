@@ -3,25 +3,25 @@
 #include <locale.h>
 int main (void){
 		setlocale(LC_ALL, "Portuguese");
-		
+
 	char nome[40];
 	char endereco [50];
 	char telefone[15];
 	char cpf [15];
-	
-	
+
+
 	float fim;
 	int vz;
 	float parc;
-	
+    int chose;
 	char nome_car;
 	int carro;
 	float carroslect;
 	float valor;
-	int kwid = 48990, mobi = 49990, uno = 64990, hb20 = 64990, joy = 64990, gol= 65990, siena = 66990; 
-	
-	
-	printf ("****************TABELA CARROS À VENDA***************\n");	
+	int kwid = 48990, mobi = 49990, uno = 64990, hb20 = 64990, joy = 64990, gol= 65990, siena = 66990;
+
+
+	printf ("****************TABELA CARROS À VENDA***************\n");
 	printf("_____Modelo______________Motor____________Preco____\n");
 	printf ("1-->Renault Kwid        1.0 12v         R$48.990\n");
 	printf ("2-->Fiat Mobi           1.0 8V          R$49.990\n");
@@ -32,10 +32,10 @@ int main (void){
 	printf ("7-->Fiat Grand Siena    1.0 8V          R$66.990\n");
 	printf("\n****************************************************");
 	printf (" \nSelecione : ");
-	scanf ("%i", &carro);
-	
-	switch (carro) {
-		
+	scanf ("%i", &chose);
+
+	switch (chose) {
+
 		case 1 :
 			carro = kwid;
 			printf("\nVeiculo : Renault Kwid 1.0 12v\n");
@@ -67,31 +67,31 @@ int main (void){
 			default :
 				printf("OPÇÃO INVÁLIDA");
 				return 0;
-				
+
 	}
-	
-	
+
+
 	  carroslect = carro;
 		printf("\nValor : %.2f", carroslect);
 
 		printf("\n\nMétodo de Pagamento: \n1--> À Vista com 10% % de desconto\n2-->Financiamento C/Juros %\n\nSelecione: ");
 		int pag;
 		scanf("%i", &pag);
-		
+
 		if(pag >= 3){
 			return 0;
 		}
-		
-		
+
+
 		if (pag == 1){
-		
-		
+
+
 		carroslect= carroslect-(carroslect*10/100);
 		printf("\nValor Final do Veículo com desconto : %.2f\n", carroslect);
-		
+
 		printf("\n\n**********INSIRA SEUS DADOS**********\n");
-		
-		
+
+
 		fgets (nome,40,stdin);
 			printf ("\nDigite seu nome: ");
 		fgets (nome,40,stdin);
@@ -109,52 +109,52 @@ int main (void){
 		printf("\nCPF: %s", cpf);
 		printf("\nTelefone: %s", telefone);
 		printf("\nModelo Veículo: ");
-		
-		if(carro=1)
+
+		if(chose==1)
 		printf("Renault Kwid       1.0 12v\n");
-		else if(carro=2)
+		else if(chose==2)
 		printf("Fiat Mobi           1.0 8V\n");
-		else if(carro=3)
+		else if(chose==3)
 		printf("Fiat  Uno          1.0 8V\n");
-		else if(carro=4)
+		else if(chose==4)
 		printf("Hyundai HB20       1.0 12V\n");
-		else if(carro=5)
+		else if(chose==5)
 		printf("Chevrolet Joy       1.0 8V\n");
-		else if(carro=6)
+		else if(chose==6)
 		printf("Volkswagen Gol      1.0 8V\n");
-		else if(carro=7)
+		else if(chose==7)
 		printf("Fiat Grand Siena    1.0 8V\n");
-	
+
 		printf("\nTotal : %.2f", carroslect);
 		printf("\n\n*******************************************************");
 		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
 		printf("\n*******************************************************");
 		printf("\n———————————————————————————————————————————————————————");
-		
-		
-	}	
+
+
+	}
 		else {
-		
+
 		printf("\n***Opções de Financiamento***\n");
 		printf("1--> 12x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*10/100)) /12, carroslect+(carroslect*0.10));
 		printf("2--> 24x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*15/100)) /24, carroslect+(carroslect*0.15));
 		printf("3--> 36x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*20/100)) /36, carroslect+(carroslect*0.20));
 		printf("4--> 48x %.2f Com Juros = %.2f\n", (carroslect+(carroslect*25/100)) /48, carroslect+(carroslect*0.25));
-		
+
 		int opjuros;
 		printf("\nSelecione: ");
 		scanf ("%i", &opjuros);
-		
-		
-		
+
+
+
 		switch (opjuros) {
-		
-			
+
+
 			case 1:
 				opjuros = carroslect+(carroslect*10/100);
 				vz = 12;
 				parc= opjuros/12;
-			
+
 				break;
 			case 2:
 				opjuros = carroslect+(carroslect*15/100);
@@ -163,7 +163,7 @@ int main (void){
 				break;
 			case 3:
 				opjuros = carroslect+(carroslect*20/100);
-				
+
 				vz = 36;
 				parc= opjuros/36;
 				break;
@@ -172,22 +172,22 @@ int main (void){
 
 				vz = 48;
 				parc= opjuros/48;
-				break;		
+				break;
 				default :
 				printf("OPÇÃO INVÁLIDA");
 				return 0;
 			}
-		
-		
+
+
 	    fim=opjuros;
-		
+
 		float opjurosf = opjuros;
-		
+
 		printf("%.2f", opjurosf);
-		
+
 		printf("\n\n**********INSIRA SEUS DADOS**********\n");
-		
-		
+
+
 		fgets (nome,40,stdin);
 			printf ("\nDigite seu nome: ");
 		fgets (nome,40,stdin);
@@ -198,45 +198,45 @@ int main (void){
 			printf("Digite seu telefone: ");
 		fgets(telefone,15,stdin);
 
-		
+
 		printf("\n\n\n\n———————————————————————————————————————————————————————");
 		printf("\n**********************NOTA FISCAL**********************");
 		printf("\nCliente: %s", nome);
 		printf("Endereço: %s", endereco);
 		printf("CPF: %s", cpf);
 		printf("Telefone: %s", telefone);
-		
+
 		printf("\nModelo Veículo: ");
-		
-		if(carro=1)
-		printf("Renault Kwid 1.0 12v\n");
-		else if(carro=2)
-		printf("Fiat Mobi 1.0 8V\n");
-		else if(carro=3)
-		printf("Fiat  Uno 1.0 8V\n");
-		else if(carro=4)
-		printf("Hyundai HB20 1.0 12V\n");
-		else if(carro=5)
-		printf("Chevrolet Joy 1.0 8V\n");
-		else if(carro=6)
-		printf("Volkswagen Gol 1.0 8V\n");
-		else if(carro=7)
-		printf("Fiat Grand Siena 1.0 8V\n");
-	
-		
+
+		if(chose==1)
+		printf("Renault Kwid       1.0 12v\n");
+		else if(chose==2)
+		printf("Fiat Mobi           1.0 8V\n");
+		else if(chose==3)
+		printf("Fiat  Uno          1.0 8V\n");
+		else if(chose==4)
+		printf("Hyundai HB20       1.0 12V\n");
+		else if(chose==5)
+		printf("Chevrolet Joy       1.0 8V\n");
+		else if(chose==6)
+		printf("Volkswagen Gol      1.0 8V\n");
+		else if(chose==7)
+		printf("Fiat Grand Siena    1.0 8V\n");
+
+
 		printf("Financiamento em %i Vezes\nValor Mensalidade : %.2f\nValor Final: %.2f ",vz,parc,fim);
-	
+
 		printf("\n\n*******************************************************");
 		printf("\n*___________MUITO OBRIGADO E VOLTE SEMPRE_____________*");
 		printf("\n*******************************************************");
 		printf("\n———————————————————————————————————————————————————————");
-		
-	
-		
-		
+
+
+
+
 }
-	
-		
+
+
 
 	return 0;
 }
