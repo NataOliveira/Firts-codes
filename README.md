@@ -1,3 +1,3 @@
 # _Firts-codes_
-## Os meus primeiros codes da facul 🙂
+## Os meus primeiros codes da faculdade em C
 
